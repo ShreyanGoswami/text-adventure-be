@@ -4,7 +4,7 @@ const {Client} = require('pg')
 require('dotenv').config();
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: {
