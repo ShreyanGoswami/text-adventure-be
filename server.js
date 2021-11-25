@@ -31,7 +31,7 @@ app.post('/user/result', (req, res, next) => {
     res.sendStatus(201);
 });
 
-app.get('/', (res, res, next) => {
+app.get('/', (req, res, next) => {
     res.sendStatus(200);
 })
 
