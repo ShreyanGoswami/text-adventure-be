@@ -31,6 +31,10 @@ app.post('/user/result', (req, res, next) => {
     res.sendStatus(201);
 });
 
+app.get('/', (res, res, next) => {
+    res.sendStatus(200);
+})
+
 const add = (client, data) => {
     client.query(`INSERT INTO result VALUES (${data["playerId"]},${data["storyId"]},${data["answer"]},${data["status"]})`, (err, res) => {
         if (err) {
