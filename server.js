@@ -18,18 +18,18 @@ console.log('Connected to database');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
-app.use((req,res,next) => {
-    req.header("Access-Control-Allow-Origin", "*");
-})
+// app.use((req,res,next) => {
+//     req.header("Access-Control-Allow-Origin", "*");
+// })
 
 app.post('/user/result', (req, res, next) => {
     console.log('Received request to store user results');
     console.log('Received Data' + JSON.stringify(req.body));
 
-    for (let i=0;i<req.body.length;i++) {
-        console.log('Attempting to add');
-        // add(client, req.body[i]);
-    }
+    // for (let i=0;i<req.body.length;i++) {
+    //     console.log('Attempting to add');
+    //     // add(client, req.body[i]);
+    // }
 
     res.sendStatus(201);
 });
