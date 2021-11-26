@@ -18,9 +18,12 @@ console.log('Connected to database');
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json())
-// app.use((req,res,next) => {
-//     req.header("Access-Control-Allow-Origin", "*");
-// })
+app.use((req,res,next) => {
+    const origin = req.get('origin');
+    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next();
+})
 
 app.post('/user/result', (req, res, next) => {
     console.log('Received request to store user results');
