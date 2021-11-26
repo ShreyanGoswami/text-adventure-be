@@ -40,7 +40,9 @@ app.get('/', (req, res, next) => {
 })
 
 const add = (client, data) => {
-    client.query(`INSERT INTO result VALUES (${data["playerId"]},${data["storyId"]},${data["answer"]},${data["status"]})`, (err, res) => {
+    const query = `INSERT INTO result (playerId,storyId,answer,status) VALUES (${data["playerId"]},${data["storyId"]},${data["answer"]},${data["status"]})`
+    console.log(`Query ${query}`);
+    client.query(query, (err, res) => {
         if (err) {
             console.log('Error while inserting values: ' + err);
         } else {
