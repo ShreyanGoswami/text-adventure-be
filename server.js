@@ -13,9 +13,7 @@ const client = new Client({
     }
 })
 
-console.log(`Attempting to connect to database ${process.env.DATABASE_URL}`);
 client.connect();
-console.log('Connected to database');
 
 app.use(cors({
     origin:'*'
@@ -44,9 +42,9 @@ const add = (client, data) => {
     console.log(`Query ${query}`);
     client.query(query, (err, res) => {
         if (err) {
-            console.log('Error while inserting values: ' + err);
+            console.log(`Error while inserting values: ${err}`);
         } else {
-            console.log(`Data ${data} inserted successfully`);
+            console.log(`Data ${JSON.stringify(data)} inserted successfully`);
         }
     })
 }
