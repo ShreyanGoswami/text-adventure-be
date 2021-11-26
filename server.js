@@ -14,7 +14,7 @@ const client = new Client({
 })
 
 console.log(`Attempting to connect to database ${process.env.DATABASE_URL}`);
-// client.connect();
+client.connect();
 console.log('Connected to database');
 
 app.use(cors({
@@ -27,10 +27,10 @@ app.post('/user/result', (req, res, next) => {
     console.log('Received request to store user results');
     console.log('Received Data' + JSON.stringify(req.body));
 
-    // for (let i=0;i<req.body.length;i++) {
-    //     console.log('Attempting to add');
-    //     // add(client, req.body[i]);
-    // }
+    for (let i=0;i<req.body.length;i++) {
+        console.log('Attempting to add');
+        add(client, req.body[i]);
+    }
 
     res.sendStatus(201);
 });
